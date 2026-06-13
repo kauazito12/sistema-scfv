@@ -1,14 +1,13 @@
-// conexão com BD
-
 const { Pool } = require("pg");
 
+
+console.log(process.env.DATABASE_URL);
+
 const pool = new Pool({
-  user: "postgres",
-  host: "localhost",
-  database: "tcc_emprestimos", 
-  password: "123456",   
-  port: 5432,
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false,
+  },
 });
 
 module.exports = pool;
-

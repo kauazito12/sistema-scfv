@@ -1,12 +1,14 @@
-
 const { Pool } = require("pg");
 
-const pool = new Pool({
-  user: "postgres",
-  host: "localhost",
-  database: "scfv",
-  password: "123456",
-  port: 5432,
+const db = new Pool({
+  user: "postgres.zayofjymnzlxeznuyzis",
+  host: "aws-1-sa-east-1.pooler.supabase.com",
+  database: "postgres",
+  password: "scfvkaua1213",
+  port: 6543,
+  ssl: {
+    rejectUnauthorized: false,
+  },
 });
 
-module.exports = pool;
+module.exports = db;
