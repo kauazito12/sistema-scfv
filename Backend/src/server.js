@@ -26,15 +26,8 @@ app.use("/pontos-embarque", pontosEmbarqueRoutes);
 app.use("/vinculos", vinculosRoutes);
 app.use("/auth", authRoutes);
 
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 
-const server = app.listen(PORT, () => {
+app.listen(PORT, () => {
   console.log(`Servidor SCFV rodando na porta ${PORT}`);
 });
-
-server.on("error", (error) => {
-  console.error("Erro ao iniciar servidor:", error);
-});
-
-/* Mantém o processo ativo */
-setInterval(() => {}, 1000);
